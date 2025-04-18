@@ -44,8 +44,7 @@ pip install -r requirements.txt
 
 ### 📽️ 🇧🇷 Como instalar:
 
-![Demonstração CLI](docs/demo.mp4)
-
+<video src="docs/demo.mp4" controls autoplay loop style="max-width:100%;"></video>
 
 ---
 
