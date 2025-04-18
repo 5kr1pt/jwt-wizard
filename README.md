@@ -2,8 +2,6 @@
 
 CLI super enxuta para decodificar, editar e re‑assinar JSON Web Tokens **sem sofrimento** e sem depender do jwt.io kkkkkk.
 
-![jwt‑wizard demo](docs/demo.gif)
-
 ---
 
 ## Instalação
@@ -43,6 +41,11 @@ pip install -r requirements.txt
     
 - Compatível com HS256/HS512/RS256/none (decodificação)
     
+
+### 📽️ 🇧🇷 Como instalar:
+
+![Demonstração CLI](docs/demo.mp4)
+
 
 ---
 
