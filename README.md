@@ -52,8 +52,3 @@ pip install -r requirements.txt
 ## Licença
 
 MIT © 2025 Paulo Galino Werneck
-
-
-### .gitignore mínimo`
-
-.venv/ **pycache**/ *.pyc
