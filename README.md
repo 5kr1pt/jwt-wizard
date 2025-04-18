@@ -41,10 +41,12 @@ pip install -r requirements.txt
     
 - Compatível com HS256/HS512/RS256/none (decodificação)
     
+---
 
-### 📽️ 🇧🇷 Como instalar:
+### 📽️ 🇧🇷 Como instalar - Video:
 
-<video src="docs/demo.mp4" controls autoplay loop style="max-width:100%;"></video>
+[![Demonstração do JWT Wizard](https://img.youtube.com/vi/m4_HoBReFkI/hqdefault.jpg)](https://youtu.be/m4_HoBReFkI?si=wJUPdc_EIpRdksNU)
+
 
 ---
 
