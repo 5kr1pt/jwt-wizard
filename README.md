@@ -8,9 +8,11 @@ CLI super enxuta para decodificar, editar e re‑assinar JSON Web Tokens **sem s
 
 ```bash
 git clone https://github.com/5kr1pt/jwt-wizard.git
-cd jwt‑wizard
+cd jwt‑wizard/
 python -m venv .venv && source .venv/bin/activate ```ou conforme o seu shell```
 pip install -r requirements.txt
+cd jwt-wizard/
+python ./cli.py
 ```
 
 ⚡️ Apenas Python 3.8+ e `PyJWT` como dependência de runtime.
