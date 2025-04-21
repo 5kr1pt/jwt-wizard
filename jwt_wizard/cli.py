@@ -14,6 +14,25 @@ import argparse
 from getpass import getpass
 
 import jwt
+from colorama import Fore, Style, init
+
+init(autoreset=True)
+
+ASCII_ART = f"""{Fore.RED}
+
+      ___        _______  __        ___                  _ 
+     | \\ \\      / |_   _| \\ \\      / (_)______ _ _ __ __| |
+  _  | |\\ \\ /\\ / /  | |    \\ \\ /\\ / /| |_  / _` | '__/ _` |
+ | |_| | \\ V  V /   | |     \\ V  V / | |/ | (_| | | | (_| |
+  \\___/   \\_/\\_/    |_|      \\_/\\_/  |_/___\\__,_|_|  \\__,_|
+                                                           
+                 JSON Web Token Manipulation
+                  by Paulo “5kr1pt” Werneck
+
+{Style.RESET_ALL}"""
+
+SLEEP_TIME = 1
+TIMEOUT = SLEEP_TIME + 1
 
 
 def decode_no_verify(token: str) -> dict:
@@ -30,7 +49,7 @@ def decode_no_verify(token: str) -> dict:
 
 
 def interactive_edit(payload: dict) -> dict:
-    """Loop para alterar/adi‑cionar claims via prompt."""
+    """Loop para alterar/adicionar claims via prompt."""
     print("\n--- Payload atual ---")
     print(json.dumps(payload, indent=2, ensure_ascii=False))
 
@@ -63,26 +82,36 @@ def generate_token(payload: dict, secret: str, alg: str = "HS256") -> str:
 
 
 def cli():
+    # 1) exibe o banner e pausa breve
+    print(ASCII_ART)
+    time.sleep(SLEEP_TIME)
+
+    # 2) parse dos argumentos
     parser = argparse.ArgumentParser(
         description="Wizard para editar e re‑assinar JWTs facilmente."
     )
-    parser.add_argument("--token", help="JWT antigo (se não usar modo interativo)")
-    parser.add_argument("--secret", help="Chave secreta")
+    parser.add_argument("-t", "--token", help="JWT antigo (se não usar modo interativo)")
+    parser.add_argument("-s", "--secret", help="Chave secreta")
     parser.add_argument(
         "--set",
         metavar="K=V",
         nargs="*",
-        help="Altera claims sem prompt (pode repetir). Ex: --set sub=1 role=admin",
+        help="Altera claims sem prompt (Ex: --set sub=1 role=admin)",
     )
     args = parser.parse_args()
 
-    # === Leitura interativa caso flags não sejam usadas =======================
+    # 3) leitura interativa se não passou flags
     token = args.token or input("🔒 JWT antigo: ").strip()
     secret = args.secret or getpass("🔑 Chave secreta (entrada oculta): ").strip()
 
-    payload = decode_no_verify(token)
+    # 4) decodifica sem verificação
+    try:
+        payload = decode_no_verify(token)
+    except Exception as e:
+        print(f"{Fore.RED}Erro ao decodificar sem verificar:{Style.RESET_ALL} {e}")
+        return
 
-    # Flags --set têm prioridade; se não houver, cai no modo de edição manual
+    # 5) aplica --set ou modo interativo
     if args.set:
         for pair in args.set:
             k, _, v = pair.partition("=")
@@ -90,12 +119,12 @@ def cli():
     else:
         payload = interactive_edit(payload)
 
+    # 6) atualiza timestamps e gera novo token
     refresh_times(payload)
-
     new_token = generate_token(payload, secret)
-    print("\n✅ Novo JWT gerado:\n")
-    print(new_token)
 
+    # 7) imprime o resultado
+    print(f"\n{Fore.GREEN}✅ Novo JWT gerado:{Style.RESET_ALL}\n{new_token}")
 
 if __name__ == "__main__":
     cli()
