@@ -1,6 +1,18 @@
 # 🔐 JWT‑Wizard
 
-CLI super enxuta para decodificar, editar e re‑assinar JSON Web Tokens **sem sofrimento** e sem depender do jwt.io kkkkkk.
+## ⚠️ Aviso de Segurança
+
+Este programa **desativa** todas as verificações de segurança padrão de um JWT:
+
+- Desliga a verificação de assinatura (`verify_signature=False`)
+- Ignora checagens de expiração (`verify_exp=False`) e “not before” (`verify_nbf=False`)
+- Permite o uso do algoritmo `"none"` sem qualquer assinatura
+
+**IMPORTANTE:**  
+Este script destina‑se **exclusivamente** a fins educacionais, testes em laboratório ou CTFs.  
+**NÃO USE** este código em ambientes de produção ou sempre que a integridade/autenticidade dos tokens for crítica — você estará exposto a ataques de falsificação de JWT e outras vulnerabilidades graves.
+
+Esse programa é uma CLI super enxuta para decodificar, editar e re‑assinar JSON Web Tokens **sem sofrimento**.
 
 ---
 
