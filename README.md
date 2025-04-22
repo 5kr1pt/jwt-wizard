@@ -67,6 +67,6 @@ python ./cli.py
 
 ---
 
-## Licença
+## 📄 Licença
 
-MIT © 2025 Paulo Galino Werneck
+Este projeto está licenciado sob a Licença [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
