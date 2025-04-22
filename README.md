@@ -62,6 +62,9 @@ python ./cli.py
 [![Demonstração do JWT Wizard](https://img.youtube.com/vi/m4_HoBReFkI/hqdefault.jpg)](https://youtu.be/m4_HoBReFkI?si=wJUPdc_EIpRdksNU)
 
 
+<!-- ### 📽️ 🇺🇸 How to install - Video: -->
+
+
 ---
 
 ## Licença
