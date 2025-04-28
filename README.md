@@ -24,7 +24,7 @@ cd jwt‑wizard/
 python -m venv .venv && source .venv/bin/activate ```ou conforme o seu shell```
 pip install -r requirements.txt
 cd jwt-wizard/
-python ./cli.py
+python3 ./cli.py ou python ./cli.py
 ```
 
 ⚡️ Apenas Python 3.8+ e `PyJWT` como dependência de runtime.
