@@ -1,5 +1,9 @@
 # 🔐 JWT‑Wizard
 
+<div align="center">
+<img src="jwt.png" width="450" height="160">
+</div>
+
 ## ⚠️ Aviso de Segurança
 
 Este programa **desativa** todas as verificações de segurança padrão de um JWT:
